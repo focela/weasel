@@ -1,10 +1,13 @@
 // PROJECTS IMPORT
+import RTLLayout from '~/components/RTLLayout';
 import ThemeCustomization from '~/themes';
 
 export default function App() {
   return (
     <ThemeCustomization>
-      <h1>This is App.tsx!</h1>;
+      <RTLLayout>
+        <h1>This is App.tsx!</h1>;
+      </RTLLayout>
     </ThemeCustomization>
   );
 }
