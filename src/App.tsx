@@ -1,5 +1,8 @@
+import { RouterProvider } from 'react-router-dom';
+
 // PROJECT IMPORT
 import Locales from '~/components/Locales';
+import router from '~/routes';
 import RTLLayout from '~/components/RTLLayout';
 import ScrollTop from '~/components/ScrollTop';
 import Snackbar from '~/components/third-party/Snackbar';
@@ -15,7 +18,7 @@ export default function App() {
             <AuthProvider>
               <>
                 <Snackbar>
-                  <h1>This is App.tsx!</h1>;
+                  <RouterProvider router={router} />
                 </Snackbar>
               </>
             </AuthProvider>

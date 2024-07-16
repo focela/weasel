@@ -1,6 +1,8 @@
 // PROJECT IMPORT
 import { DefaultConfigProps } from '~/types/config';
 
+export const APP_DEFAULT_PATH = '/dashboard';
+
 export enum LAYOUT_CONST {
   VERTICAL = 'vertical',
   HORIZONTAL = 'horizontal'

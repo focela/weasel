@@ -1,5 +1,11 @@
+import { ReactElement } from 'react';
+
 // TYPES IMPORT
 import { UserProfile } from '~/types/user';
+
+export type GuardProps = {
+  children: ReactElement | null;
+};
 
 export type JWTContextType = {
   isLoggedIn: boolean;
