@@ -90,6 +90,7 @@ export default function Snackbar() {
           <Alert
             variant={snackbar.alert.variant}
             color={snackbar.alert.color}
+            severity={snackbar.severity}
             action={
               <>
                 {snackbar.actionButton !== false && (

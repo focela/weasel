@@ -43,7 +43,7 @@ export function useGetSnackbar() {
 }
 
 export function openSnackbar(snackbar: SnackbarProps) {
-  const { action, open, message, anchorOrigin, variant, alert, transition, close, actionButton } = snackbar;
+  const { action, open, message, anchorOrigin, variant, alert, transition, close, actionButton, severity } = snackbar;
 
   mutate(
     endpoints.key,
@@ -51,6 +51,7 @@ export function openSnackbar(snackbar: SnackbarProps) {
       return {
         ...currentSnackbar,
         action: action || initialState.action,
+        severity: severity || initialState.severity,
         open: open || initialState.open,
         message: message || initialState.message,
         anchorOrigin: anchorOrigin || initialState.anchorOrigin,
