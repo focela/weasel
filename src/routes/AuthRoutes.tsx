@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 
 // PROJECT IMPORT
-import AuthLayout from '~/layout/Auth';
+import AuthLayout from '~/layout/AuthLayout';
 import Loadable from '~/components/Loadable';
 
 // RENDER - AUTH
