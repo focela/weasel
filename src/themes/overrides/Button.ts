@@ -1,7 +1,7 @@
 // MUI IMPORT
 import { alpha, Theme } from '@mui/material/styles';
 
-// PROJECTS IMPORT
+// PROJECT IMPORT
 import getColors from '~/utils/getColors';
 import getShadow from '~/utils/getShadow';
 

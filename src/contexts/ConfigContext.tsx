@@ -3,7 +3,7 @@ import { createContext, ReactElement } from 'react';
 // MUI IMPORT
 import { PaletteMode } from '@mui/material';
 
-// PROJECTS IMPORT
+// PROJECT IMPORT
 import defaultConfig from '~/config';
 import useLocalStorage from '~/hooks/useLocalStorage';
 

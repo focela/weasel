@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import StyledEngineProvider from '@mui/material/StyledEngineProvider';
 import { createTheme, Theme, ThemeOptions, ThemeProvider, TypographyVariantsOptions } from '@mui/material/styles';
 
-// PROJECTS IMPORT
+// PROJECT IMPORT
 import componentsOverride from '~/themes/overrides';
 import CustomShadows from '~/themes/shadows';
 import Palette from '~/themes/palette';

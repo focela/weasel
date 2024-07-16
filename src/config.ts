@@ -1,4 +1,4 @@
-// PROJECTS IMPORT
+// PROJECT IMPORT
 import { DefaultConfigProps } from '~/types/config';
 
 export enum LAYOUT_CONST {

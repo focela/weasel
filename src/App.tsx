@@ -1,4 +1,4 @@
-// PROJECTS IMPORT
+// PROJECT IMPORT
 import Locales from '~/components/Locales';
 import RTLLayout from '~/components/RTLLayout';
 import ThemeCustomization from '~/themes';

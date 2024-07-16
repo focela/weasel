@@ -5,7 +5,7 @@ import { PaletteMode } from '@mui/material';
 // THIRD-PARTY IMPORT
 import { PalettesProps, presetDarkPalettes, presetPalettes } from '@ant-design/colors';
 
-// PROJECTS IMPORT
+// PROJECT IMPORT
 import ThemeOption from '~/themes/theme';
 
 // TYPES IMPORT

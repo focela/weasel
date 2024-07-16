@@ -1,4 +1,4 @@
-// PROJECTS IMPORT
+// PROJECT IMPORT
 import Default from '~/themes/theme/default';
 
 // THIRD-PARTY IMPORT
