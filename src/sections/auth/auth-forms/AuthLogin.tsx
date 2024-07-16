@@ -75,7 +75,9 @@ export default function AuthLogin() {
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <Stack spacing={1}>
-              <InputLabel htmlFor="account-login">{intl.formatMessage({ id: 'auth.account' })}</InputLabel>
+              <InputLabel required htmlFor="account-login">
+                {intl.formatMessage({ id: 'auth.account' })}
+              </InputLabel>
               <OutlinedInput
                 id="account-login"
                 type="text"
@@ -96,7 +98,9 @@ export default function AuthLogin() {
           </Grid>
           <Grid item xs={12}>
             <Stack spacing={1}>
-              <InputLabel htmlFor="password-login">{intl.formatMessage({ id: 'auth.password' })}</InputLabel>
+              <InputLabel required htmlFor="password-login">
+                {intl.formatMessage({ id: 'auth.password' })}
+              </InputLabel>
               <OutlinedInput
                 fullWidth
                 error={Boolean(formik.touched.password && formik.errors.password)}
