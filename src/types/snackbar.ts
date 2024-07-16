@@ -15,4 +15,5 @@ export interface SnackbarProps {
   dense: boolean;
   maxStack: number;
   iconVariant: string;
+  severity: 'info' | 'success' | 'warning' | 'error';
 }

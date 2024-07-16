@@ -2,6 +2,7 @@ import { RouterProvider } from 'react-router-dom';
 
 // PROJECT IMPORT
 import Locales from '~/components/Locales';
+import MuiSnackbar from '~/components/extended/Snackbar';
 import router from '~/routes';
 import RTLLayout from '~/components/RTLLayout';
 import ScrollTop from '~/components/ScrollTop';
@@ -19,6 +20,7 @@ export default function App() {
               <>
                 <Snackbar>
                   <RouterProvider router={router} />
+                  <MuiSnackbar />
                 </Snackbar>
               </>
             </AuthProvider>
