@@ -1,0 +1,72 @@
+import { ReactNode } from 'react';
+
+// MUI IMPORT
+import AppBar, { AppBarProps } from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+
+// THIRD-PARTY IMPORT
+import MenuFoldOutlined from '@ant-design/icons/MenuFoldOutlined';
+import MenuUnfoldOutlined from '@ant-design/icons/MenuUnfoldOutlined';
+
+// PROJECT IMPORT
+import AppBarStyled from '~/layout/MainLayout/Header/AppBarStyled';
+import IconButton from '~/components/extended/IconButton';
+import useConfig from '~/hooks/useConfig';
+import { DRAWER_WIDTH, LAYOUT_CONST, MINI_DRAWER_WIDTH } from '~/config';
+import { handlerDrawerOpen, useGetMenuMaster } from '~/api/menu';
+
+export default function Header() {
+  const theme = useTheme();
+  const matchDownLG = useMediaQuery(theme.breakpoints.down('lg'));
+
+  const { menuMaster } = useGetMenuMaster();
+  const drawerOpen = menuMaster.isDashboardDrawerOpened;
+
+  const { layout, mode } = useConfig();
+  const isHorizontal = layout === LAYOUT_CONST.HORIZONTAL && !matchDownLG;
+  const iconBackColor = mode === 'dark' ? 'background.default' : 'grey.100';
+
+  const appBar: AppBarProps = {
+    position: 'fixed',
+    color: 'inherit',
+    elevation: 0,
+    sx: {
+      borderBottom: '1px solid',
+      borderBottomColor: 'divider',
+      zIndex: 1200,
+      width: isHorizontal
+        ? '100%'
+        : { xs: '100%', lg: drawerOpen ? `calc(100% - ${DRAWER_WIDTH}px)` : `calc(100% - ${MINI_DRAWER_WIDTH}px)` }
+    }
+  };
+
+  const mainHeader: ReactNode = (
+    <Toolbar>
+      {!isHorizontal ? (
+        <IconButton
+          aria-label="open drawer"
+          onClick={() => handlerDrawerOpen(!drawerOpen)}
+          edge="start"
+          color="secondary"
+          variant="light"
+          sx={{ color: 'text.primary', bgcolor: drawerOpen ? 'transparent' : iconBackColor, ml: { xs: 0, lg: -2 } }}
+        >
+          {!drawerOpen ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+        </IconButton>
+      ) : null}
+    </Toolbar>
+  );
+  return (
+    <>
+      {!matchDownLG ? (
+        <AppBarStyled open={drawerOpen} {...appBar}>
+          {mainHeader}
+        </AppBarStyled>
+      ) : (
+        <AppBar {...appBar}>{mainHeader}</AppBar>
+      )}
+    </>
+  );
+}

@@ -2,6 +2,8 @@
 import { DefaultConfigProps } from '~/types/config';
 
 export const APP_DEFAULT_PATH = '/dashboard';
+export const DRAWER_WIDTH = 260;
+export const MINI_DRAWER_WIDTH = 60;
 
 export enum LAYOUT_CONST {
   VERTICAL = 'vertical',
