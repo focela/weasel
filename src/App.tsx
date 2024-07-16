@@ -1,6 +1,7 @@
 // PROJECT IMPORT
 import Locales from '~/components/Locales';
 import RTLLayout from '~/components/RTLLayout';
+import ScrollTop from '~/components/ScrollTop';
 import ThemeCustomization from '~/themes';
 
 export default function App() {
@@ -8,7 +9,9 @@ export default function App() {
     <ThemeCustomization>
       <RTLLayout>
         <Locales>
-          <h1>This is App.tsx!</h1>;
+          <ScrollTop>
+            <h1>This is App.tsx!</h1>;
+          </ScrollTop>
         </Locales>
       </RTLLayout>
     </ThemeCustomization>
