@@ -2,7 +2,6 @@ import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 // MUI IMPORT
-import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormHelperText from '@mui/material/FormHelperText';
@@ -10,6 +9,7 @@ import Grid from '@mui/material/Grid';
 import InputAdornment from '@mui/material/InputAdornment';
 import InputLabel from '@mui/material/InputLabel';
 import Link from '@mui/material/Link';
+import LoadingButton from '@mui/lab/LoadingButton';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -159,9 +159,9 @@ export default function AuthLogin() {
           )}
           <Grid item xs={12}>
             <AnimateButton>
-              <Button
+              <LoadingButton
                 disableElevation
-                disabled={formik.isSubmitting}
+                loading={formik.isSubmitting}
                 fullWidth
                 size="large"
                 type="submit"
@@ -169,7 +169,7 @@ export default function AuthLogin() {
                 color="primary"
               >
                 {intl.formatMessage({ id: 'auth.login' })}
-              </Button>
+              </LoadingButton>
             </AnimateButton>
           </Grid>
         </Grid>
