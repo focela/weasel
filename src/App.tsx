@@ -3,6 +3,7 @@ import Locales from '~/components/Locales';
 import RTLLayout from '~/components/RTLLayout';
 import ScrollTop from '~/components/ScrollTop';
 import ThemeCustomization from '~/themes';
+import { JWTProvider as AuthProvider } from '~/contexts/JWTContext';
 
 export default function App() {
   return (
@@ -10,7 +11,9 @@ export default function App() {
       <RTLLayout>
         <Locales>
           <ScrollTop>
-            <h1>This is App.tsx!</h1>;
+            <AuthProvider>
+              <h1>This is App.tsx!</h1>;
+            </AuthProvider>
           </ScrollTop>
         </Locales>
       </RTLLayout>
