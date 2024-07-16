@@ -17,6 +17,7 @@ import Typography from '@mui/material/Typography';
 // THIRD-PARTY IMPORT
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
+import { useIntl } from 'react-intl';
 
 // PROJECT IMPORT
 import AnimateButton from '~/components/extended/AnimateButton';
@@ -29,6 +30,8 @@ import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 
 export default function AuthLogin() {
+  const intl = useIntl();
+
   const [checked, setChecked] = React.useState(false);
 
   const { login } = useAuth();
@@ -72,7 +75,7 @@ export default function AuthLogin() {
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <Stack spacing={1}>
-              <InputLabel htmlFor="account-login">Email Address</InputLabel>
+              <InputLabel htmlFor="account-login">{intl.formatMessage({ id: 'auth.account' })}</InputLabel>
               <OutlinedInput
                 id="account-login"
                 type="text"
@@ -80,7 +83,7 @@ export default function AuthLogin() {
                 name="account"
                 onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
-                placeholder="Enter email address"
+                placeholder={intl.formatMessage({ id: 'auth.account.placeholder' })}
                 fullWidth
                 error={Boolean(formik.touched.account && formik.errors.account)}
               />
@@ -93,7 +96,7 @@ export default function AuthLogin() {
           </Grid>
           <Grid item xs={12}>
             <Stack spacing={1}>
-              <InputLabel htmlFor="password-login">Password</InputLabel>
+              <InputLabel htmlFor="password-login">{intl.formatMessage({ id: 'auth.password' })}</InputLabel>
               <OutlinedInput
                 fullWidth
                 error={Boolean(formik.touched.password && formik.errors.password)}
@@ -116,7 +119,7 @@ export default function AuthLogin() {
                     </IconButton>
                   </InputAdornment>
                 }
-                placeholder="Enter password"
+                placeholder={intl.formatMessage({ id: 'auth.password.placeholder' })}
               />
             </Stack>
             {formik.touched.password && formik.errors.password && (
@@ -138,10 +141,10 @@ export default function AuthLogin() {
                     size="small"
                   />
                 }
-                label={<Typography variant="h6">Keep me sign in</Typography>}
+                label={<Typography variant="h6">{intl.formatMessage({ id: 'auth.remember-me' })}</Typography>}
               />
               <Link variant="h6" component={RouterLink} to="/forgot-password" color="text.primary">
-                Forgot Password?
+                {intl.formatMessage({ id: 'auth.forgot-password' })}
               </Link>
             </Stack>
           </Grid>
@@ -161,7 +164,7 @@ export default function AuthLogin() {
                 variant="contained"
                 color="primary"
               >
-                Login
+                {intl.formatMessage({ id: 'auth.login' })}
               </Button>
             </AnimateButton>
           </Grid>
