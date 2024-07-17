@@ -50,7 +50,7 @@ export const JWTProvider = ({ children }: { children: ReactElement }) => {
         if (accessToken && verifyToken(accessToken)) {
           setSession(accessToken);
           const response = await getUser();
-          const { user } = response.data;
+          const user = response.data;
           dispatch({
             type: 'LOGIN',
             payload: {
