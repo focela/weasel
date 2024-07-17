@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React, { ReactNode, useMemo } from 'react';
 
 // MUI IMPORT
 import AppBar, { AppBarProps } from '@mui/material/AppBar';
@@ -12,6 +12,7 @@ import MenuUnfoldOutlined from '@ant-design/icons/MenuUnfoldOutlined';
 
 // PROJECT IMPORT
 import AppBarStyled from '~/layout/MainLayout/Header/AppBarStyled';
+import HeaderContent from '~/layout/MainLayout/Header/HeaderContent';
 import IconButton from '~/components/extended/IconButton';
 import useConfig from '~/hooks/useConfig';
 import { DRAWER_WIDTH, LAYOUT_CONST, MINI_DRAWER_WIDTH } from '~/config';
@@ -19,13 +20,13 @@ import { handlerDrawerOpen, useGetMenuMaster } from '~/api/menu';
 
 export default function Header() {
   const theme = useTheme();
-  const matchDownLG = useMediaQuery(theme.breakpoints.down('lg'));
+  const matchDownLg = useMediaQuery(theme.breakpoints.down('lg'));
 
   const { menuMaster } = useGetMenuMaster();
   const drawerOpen = menuMaster.isDashboardDrawerOpened;
 
   const { layout, mode } = useConfig();
-  const isHorizontal = layout === LAYOUT_CONST.HORIZONTAL && !matchDownLG;
+  const isHorizontal = layout === LAYOUT_CONST.HORIZONTAL && !matchDownLg;
   const iconBackColor = mode === 'dark' ? 'background.default' : 'grey.100';
 
   const appBar: AppBarProps = {
@@ -42,6 +43,8 @@ export default function Header() {
     }
   };
 
+  const headerContent = useMemo(() => <HeaderContent />, []);
+
   const mainHeader: ReactNode = (
     <Toolbar>
       {!isHorizontal ? (
@@ -56,11 +59,12 @@ export default function Header() {
           {!drawerOpen ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
         </IconButton>
       ) : null}
+      {headerContent}
     </Toolbar>
   );
   return (
     <>
-      {!matchDownLG ? (
+      {!matchDownLg ? (
         <AppBarStyled open={drawerOpen} {...appBar}>
           {mainHeader}
         </AppBarStyled>
