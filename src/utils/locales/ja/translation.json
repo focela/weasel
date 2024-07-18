@@ -33,7 +33,11 @@
   },
   "menu": {
     "dashboard": "ダッシュボード",
-    "default": "デフォルト"
+    "default": "デフォルト",
+    "system": "システム",
+    "users": "ユーザー",
+    "list": "リスト",
+    "roles": "役割"
   },
   "validation": {
     "required": "{{attribute}} は必須です。",

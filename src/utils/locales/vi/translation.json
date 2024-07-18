@@ -15,7 +15,11 @@
   },
   "menu": {
     "dashboard": "Bảng điều khiển",
-    "default": "Mặc định"
+    "default": "Mặc định",
+    "system": "Hệ thống",
+    "users": "Người dùng",
+    "list": "Danh sách",
+    "roles": "Vai trò"
   },
   "title": {
     "account-settings": "Cài đặt tài khoản",
