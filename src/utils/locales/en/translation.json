@@ -47,5 +47,25 @@
   "validation": {
     "required": "{{attribute}} is required.",
     "max": "{{attribute}} must not be greater than {{max}} characters."
+  },
+  "customization": {
+    "colorScheme": "Color Scheme",
+    "colorSchemeCaption": "Choose your primary theme color",
+    "dark": "Dark",
+    "default": "Default",
+    "fontFamily": "Font Family",
+    "fontFamilyCaption": "Choose your font family",
+    "layoutWidth": "Layout Width",
+    "layoutWidthCaption": "Choose fluid or container layout",
+    "light": "Light",
+    "menuOrientation": "Menu Orientation",
+    "menuOrientationCaption": "Choose Vertical or Horizontal Menu Orientation",
+    "miniDrawer": "Mini Drawer",
+    "themeColor": "Theme {{attribute}}",
+    "themeLayout": "Theme Layout",
+    "themeLayoutCaption": "Choose your layout",
+    "themeMode": "Theme Mode",
+    "themeModeCaption": "Choose light or dark mode",
+    "title": "Theme Customization"
   }
 }

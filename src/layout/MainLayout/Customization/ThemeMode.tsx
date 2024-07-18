@@ -11,6 +11,9 @@ import Typography from '@mui/material/Typography';
 import { PaletteMode } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
+// THIRD-PARTY IMPORT
+import { useTranslation } from 'react-i18next';
+
 // PROJECT IMPORT
 import MainCard from '~/components/cards/MainCard';
 import useConfig from '~/hooks/useConfig';
@@ -20,6 +23,8 @@ import darkLayout from '~/assets/images/customization/dark.svg';
 import defaultLayout from '~/assets/images/customization/default.svg';
 
 export default function ThemeModeLayout() {
+  const { t } = useTranslation();
+
   const theme = useTheme();
 
   const { mode, onChangeMode } = useConfig();
@@ -44,7 +49,7 @@ export default function ThemeModeLayout() {
               >
                 <Stack spacing={1.25} alignItems="center">
                   <CardMedia component="img" src={defaultLayout} alt="Vertical" sx={{ borderRadius: 1, width: 64, height: 64 }} />
-                  <Typography variant="caption">Light</Typography>
+                  <Typography variant="caption">{t('customization.light')}</Typography>
                 </Stack>
               </MainCard>
             }
@@ -63,7 +68,7 @@ export default function ThemeModeLayout() {
               >
                 <Stack spacing={1.25} alignItems="center">
                   <CardMedia component="img" src={darkLayout} alt="Vertical" sx={{ borderRadius: 1, width: 64, height: 64 }} />
-                  <Typography variant="caption">Dark</Typography>
+                  <Typography variant="caption"> {t('customization.dark')}</Typography>
                 </Stack>
               </MainCard>
             }

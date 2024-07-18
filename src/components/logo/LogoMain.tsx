@@ -6,7 +6,7 @@ export default function LogoMain({ reverse }: { reverse?: boolean }) {
 
   return (
     <>
-      <svg width="118" height="35" viewBox="0 0 818 256" xmlns="http://www.w3.org/2000/svg">
+      <svg width="120" height="35" viewBox="0 0 818 256" xmlns="http://www.w3.org/2000/svg">
         <linearGradient id="a" x1="62.102327%" x2="108.19718%" y1="0%" y2="37.863576%">
           <stop offset="0" stopColor="#4285eb" />
           <stop offset="1" stopColor="#2ec7ff" />
@@ -48,7 +48,7 @@ export default function LogoMain({ reverse }: { reverse?: boolean }) {
           fontSize="160"
           fontWeight="bold"
         >
-          Focela
+          Weasel
         </text>
       </svg>
     </>

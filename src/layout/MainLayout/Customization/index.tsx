@@ -10,13 +10,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 // THIRD-PARTY IMPORT
-import BgColorsOutlined from '@ant-design/icons/BgColorsOutlined';
-import BorderInnerOutlined from '@ant-design/icons/BorderInnerOutlined';
-import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
-import FontColorsOutlined from '@ant-design/icons/FontColorsOutlined';
-import HighlightOutlined from '@ant-design/icons/HighlightOutlined';
-import LayoutOutlined from '@ant-design/icons/LayoutOutlined';
-import SettingOutlined from '@ant-design/icons/SettingOutlined';
+import { useTranslation } from 'react-i18next';
 
 // PROJECT IMPORT
 import AnimateButton from '~/components/extended/AnimateButton';
@@ -31,8 +25,20 @@ import ThemeMenuLayout from '~/layout/MainLayout/Customization/ThemeMenuLayout';
 import ThemeWidth from '~/layout/MainLayout/Customization/ThemeWidth';
 import useConfig from '~/hooks/useConfig';
 
+// ASSETS IMPORT
+import BgColorsOutlined from '@ant-design/icons/BgColorsOutlined';
+import BorderInnerOutlined from '@ant-design/icons/BorderInnerOutlined';
+import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
+import FontColorsOutlined from '@ant-design/icons/FontColorsOutlined';
+import HighlightOutlined from '@ant-design/icons/HighlightOutlined';
+import LayoutOutlined from '@ant-design/icons/LayoutOutlined';
+import SettingOutlined from '@ant-design/icons/SettingOutlined';
+
 export default function Customization() {
+  const { t } = useTranslation();
+
   const { mode } = useConfig();
+  const iconBackColorOpen = mode === 'dark' ? 'background.default' : 'grey.100';
 
   const colorScheme = useMemo(() => <ColorScheme />, []);
   const themeFont = useMemo(() => <ThemeFont />, []);
@@ -42,12 +48,10 @@ export default function Customization() {
   const themeWidth = useMemo(() => <ThemeWidth />, []);
 
   const [open, setOpen] = useState(false);
+
   const handleToggle = () => {
     setOpen(!open);
   };
-
-  const iconBackColorOpen = mode === 'dark' ? 'background.default' : 'grey.100';
-
   return (
     <>
       <Box sx={{ flexShrink: 0, ml: 0.75 }}>
@@ -76,7 +80,7 @@ export default function Customization() {
       >
         {open && (
           <MainCard
-            title="Theme Customization"
+            title={t('customization.title')}
             sx={{
               border: 'none',
               borderRadius: 0,
@@ -120,10 +124,10 @@ export default function Customization() {
                       </IconButton>
                       <Stack>
                         <Typography variant="subtitle1" color="text.primary">
-                          Theme Layout
+                          {t('customization.themeLayout')}
                         </Typography>
                         <Typography variant="caption" color="text.secondary">
-                          Choose your layout
+                          {t('customization.themeLayoutCaption')}
                         </Typography>
                       </Stack>
                     </Stack>
@@ -144,10 +148,10 @@ export default function Customization() {
                       </IconButton>
                       <Stack>
                         <Typography variant="subtitle1" color="text.primary">
-                          Menu Orientation
+                          {t('customization.menuOrientation')}
                         </Typography>
                         <Typography variant="caption" color="text.secondary">
-                          Choose Vertical or Horizontal Menu Orientation
+                          {t('customization.menuOrientationCaption')}
                         </Typography>
                       </Stack>
                     </Stack>
@@ -168,10 +172,10 @@ export default function Customization() {
                       </IconButton>
                       <Stack>
                         <Typography variant="subtitle1" color="text.primary">
-                          Theme Mode
+                          {t('customization.themeMode')}
                         </Typography>
                         <Typography variant="caption" color="text.secondary">
-                          Choose light or dark mode
+                          {t('customization.themeModeCaption')}
                         </Typography>
                       </Stack>
                     </Stack>
@@ -192,10 +196,10 @@ export default function Customization() {
                       </IconButton>
                       <Stack>
                         <Typography variant="subtitle1" color="text.primary">
-                          Color Scheme
+                          {t('customization.colorScheme')}
                         </Typography>
                         <Typography variant="caption" color="text.secondary">
-                          Choose your primary theme color
+                          {t('customization.colorSchemeCaption')}
                         </Typography>
                       </Stack>
                     </Stack>
@@ -216,10 +220,10 @@ export default function Customization() {
                       </IconButton>
                       <Stack>
                         <Typography variant="subtitle1" color="text.primary">
-                          Layout Width
+                          {t('customization.layoutWidth')}
                         </Typography>
                         <Typography variant="caption" color="text.secondary">
-                          Choose fluid or container layout
+                          {t('customization.layoutWidthCaption')}
                         </Typography>
                       </Stack>
                     </Stack>
@@ -240,10 +244,10 @@ export default function Customization() {
                       </IconButton>
                       <Stack>
                         <Typography variant="subtitle1" color="text.primary">
-                          Font Family
+                          {t('customization.fontFamily')}
                         </Typography>
                         <Typography variant="caption" color="text.secondary">
-                          Choose your font family.
+                          {t('customization.fontFamilyCaption')}
                         </Typography>
                       </Stack>
                     </Stack>

@@ -46,5 +46,25 @@
   "validation": {
     "required": "{{attribute}} là bắt buộc.",
     "max": "{{attribute}} không được lớn hơn {{max}} ký tự."
+  },
+  "customization": {
+    "colorScheme": "Bảng phối màu",
+    "colorSchemeCaption": "Chọn màu chủ đề chính của bạn",
+    "dark": "Tối",
+    "default": "Mặc định",
+    "fontFamily": "Họ phông chữ",
+    "fontFamilyCaption": "Chọn bộ phông chữ của bạn",
+    "layoutWidth": "Chiều rộng bố cục",
+    "layoutWidthCaption": "Chọn bố cục chất lỏng hoặc thùng chứa",
+    "light": "Sáng",
+    "menuOrientation": "Định hướng menu",
+    "menuOrientationCaption": "Chọn hướng menu dọc hoặc ngang",
+    "miniDrawer": "Ngăn kéo nhỏ",
+    "themeColor": "Chủ đề {{attribute}}",
+    "themeLayout": "Bố cục chủ đề",
+    "themeLayoutCaption": "Chọn bố cục của bạn",
+    "themeMode": "Chế độ chủ đề",
+    "themeModeCaption": "Chọn chế độ sáng hoặc tối",
+    "title": "Tùy chỉnh chủ đề"
   }
 }

@@ -47,5 +47,25 @@
   "validation": {
     "required": "{{attribute}} は必須です。",
     "max": "{{attribute}} は {{max}} 文字以下である必要があります。"
+  },
+  "customization": {
+    "colorScheme": "カラースキーム",
+    "colorSchemeCaption": "メインテーマカラーを選択してください",
+    "dark": "ダーク",
+    "default": "デフォルト",
+    "fontFamily": "フォントファミリー",
+    "fontFamilyCaption": "フォントファミリーを選択してください",
+    "layoutWidth": "レイアウトの幅",
+    "layoutWidthCaption": "流動レイアウトまたはコンテナレイアウトを選択してください",
+    "light": "ライト",
+    "menuOrientation": "メニューの向き",
+    "menuOrientationCaption": "垂直または水平メニューの向きを選択してください",
+    "miniDrawer": "ミニドロワー",
+    "themeColor": "テーマ{{attribute}}",
+    "themeLayout": "テーマレイアウト",
+    "themeLayoutCaption": "レイアウトを選択してください",
+    "themeMode": "テーマモード",
+    "themeModeCaption": "ライトモードまたはダークモードを選択してください",
+    "title": "テーマのカスタマイズ"
   }
 }

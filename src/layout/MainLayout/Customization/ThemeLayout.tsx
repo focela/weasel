@@ -11,6 +11,9 @@ import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
+// THIRD-PARTY IMPORT
+import { useTranslation } from 'react-i18next';
+
 // PROJECT IMPORT
 import MainCard from '~/components/cards/MainCard';
 import useConfig from '~/hooks/useConfig';
@@ -23,6 +26,8 @@ import miniMenu from '~/assets/images/customization/mini-menu.svg';
 import rtlLayoutImg from '~/assets/images/customization/rtl.svg';
 
 export default function ThemeLayout() {
+  const { t } = useTranslation();
+
   const theme = useTheme();
   const matchDownLg = useMediaQuery(theme.breakpoints.down('lg'));
 
@@ -30,7 +35,6 @@ export default function ThemeLayout() {
   const drawerOpen = menuMaster.isDashboardDrawerOpened;
 
   const { miniDrawer, rtlLayout, layout, onChangeMiniDrawer, onChangeRTL } = useConfig();
-
   let initialTheme = 'default';
   if (miniDrawer) initialTheme = 'mini';
   if (rtlLayout) initialTheme = 'rtl';
@@ -78,7 +82,7 @@ export default function ThemeLayout() {
               >
                 <Stack spacing={1.25} alignItems="center">
                   <CardMedia component="img" src={defaultLayout} alt="Vertical" sx={{ borderRadius: 1, width: 64, height: 64 }} />
-                  <Typography variant="caption">Default</Typography>
+                  <Typography variant="caption">{t('customization.default')}</Typography>
                 </Stack>
               </MainCard>
             }
@@ -100,7 +104,7 @@ export default function ThemeLayout() {
                 >
                   <Stack spacing={1.25} alignItems="center">
                     <CardMedia component="img" src={miniMenu} alt="Vertical" sx={{ borderRadius: 1, width: 64, height: 64 }} />
-                    <Typography variant="caption">Mini Drawer</Typography>
+                    <Typography variant="caption">{t('customization.miniDrawer')}</Typography>
                   </Stack>
                 </MainCard>
               }
