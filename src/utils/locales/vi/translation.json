@@ -28,7 +28,8 @@
     "setting": "Cài đặt",
     "social-profile": "Hồ sơ xã hội",
     "support": "Hỗ trợ",
-    "view-profile": "Xem hồ sơ"
+    "view-profile": "Xem hồ sơ",
+    "my-account": "Tài khoản của tôi"
   },
   "validation": {
     "required": "{{attribute}} là bắt buộc.",

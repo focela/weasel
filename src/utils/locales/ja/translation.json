@@ -28,7 +28,8 @@
     "setting": "設定",
     "social-profile": "ソーシャル プロフィール",
     "support": "サポート",
-    "view-profile": "プロフィールの表示"
+    "view-profile": "プロフィールの表示",
+    "my-account": "私のアカウント"
   },
   "validation": {
     "required": "{{attribute}} は必須です。",
