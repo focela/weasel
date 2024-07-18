@@ -4,11 +4,10 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-export default function AuthFooter() {
-  const getYear = () => {
-    return new Date().getFullYear();
-  };
+// PROJECT IMPORT
+import { getYear } from '~/utils/getCurrentYear';
 
+export default function AuthFooter() {
   return (
     <Container maxWidth="xl">
       <Stack
