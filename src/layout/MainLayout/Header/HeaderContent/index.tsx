@@ -1,19 +1,22 @@
 import { useMemo } from 'react';
 
-import useConfig from '~/hooks/useConfig';
+// MUI IMPORT
+import Box from '@mui/material/Box';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Theme } from '@mui/material/styles';
-import { LAYOUT_CONST } from '~/config';
-import DrawerHeader from '~/layout/MainLayout/Drawer/DrawerHeader';
-import SearchSection from '~/layout/MainLayout/Header/HeaderContent/SearchSection';
-import MegaMenuSection from '~/layout/MainLayout/Header/HeaderContent/MegaMenuSection';
-import LocalizationSection from '~/layout/MainLayout/Header/HeaderContent/LocalizationSection';
-import Box from '@mui/material/Box';
-import NotificationSection from '~/layout/MainLayout/Header/HeaderContent/NotificationSection';
-import MessageSection from '~/layout/MainLayout/Header/HeaderContent/MessageSection';
-import FullScreenSection from '~/layout/MainLayout/Header/HeaderContent/FullScreenSection';
+
+// PROJECT IMPORT
 import Customization from '~/layout/MainLayout/Customization';
+import DrawerHeader from '~/layout/MainLayout/Drawer/DrawerHeader';
+import FullScreenSection from '~/layout/MainLayout/Header/HeaderContent/FullScreenSection';
+import LocalizationSection from '~/layout/MainLayout/Header/HeaderContent/LocalizationSection';
+import MegaMenuSection from '~/layout/MainLayout/Header/HeaderContent/MegaMenuSection';
+import MessageSection from '~/layout/MainLayout/Header/HeaderContent/MessageSection';
+import NotificationSection from '~/layout/MainLayout/Header/HeaderContent/NotificationSection';
 import ProfileSection from '~/layout/MainLayout/Header/HeaderContent/ProfileSection';
+import SearchSection from '~/layout/MainLayout/Header/HeaderContent/SearchSection';
+import useConfig from '~/hooks/useConfig';
+import { LAYOUT_CONST } from '~/config';
 
 export default function HeaderContent() {
   const { layout } = useConfig();

@@ -1,0 +1,37 @@
+{
+  "button": {
+    "remember-me": "Giữ cho tôi đăng nhập",
+    "login": "Đăng nhập"
+  },
+  "input": {
+    "account": {
+      "label": "Tên người dùng / E-mail",
+      "placeholder": "Nhập tên người dùng hoặc e-mail"
+    },
+    "password": {
+      "label": "Mật khẩu",
+      "placeholder": "Nhập mật khẩu"
+    }
+  },
+  "title": {
+    "account-settings": "Cài đặt tài khoản",
+    "billing": "Thanh toán",
+    "edit-profile": "Chỉnh sửa hồ sơ",
+    "feedback": "Phản hồi",
+    "forgot-password": "Quên mật khẩu?",
+    "history": "Lịch sử",
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất",
+    "privacy-center": "Trung tâm quyền riêng tư",
+    "profile": "Hồ sơ",
+    "register": "Chưa có tài khoản?",
+    "setting": "Cài đặt",
+    "social-profile": "Hồ sơ xã hội",
+    "support": "Hỗ trợ",
+    "view-profile": "Xem hồ sơ"
+  },
+  "validation": {
+    "required": "{{attribute}} là bắt buộc.",
+    "max": "{{attribute}} không được lớn hơn {{max}} ký tự."
+  }
+}

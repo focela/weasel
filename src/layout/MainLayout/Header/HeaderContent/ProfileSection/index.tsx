@@ -32,6 +32,7 @@ import useAuth from '~/hooks/useAuth';
 
 // ASSETS IMPORT
 import avatar1 from '~/assets/images/users/avatar-1.png';
+import { useTranslation } from 'react-i18next';
 
 interface TabPanelProps {
   children?: ReactNode;
@@ -56,6 +57,8 @@ function a11yProps(index: number) {
 }
 
 export default function ProfileSection() {
+  const { t } = useTranslation();
+
   const theme = useTheme();
   const navigate = useNavigate();
 
@@ -155,7 +158,7 @@ export default function ProfileSection() {
                         </Stack>
                       </Grid>
                       <Grid item>
-                        <Tooltip title="Logout">
+                        <Tooltip title={t('title.logout')}>
                           <IconButton size="large" sx={{ color: 'text.primary' }} onClick={handleLogout}>
                             <LogoutOutlined />
                           </IconButton>
@@ -175,7 +178,7 @@ export default function ProfileSection() {
                           textTransform: 'capitalize'
                         }}
                         icon={<UserOutlined style={{ marginBottom: 0, marginRight: '10px' }} />}
-                        label="Profile"
+                        label={t('title.profile')}
                         {...a11yProps(0)}
                       />
                       <Tab
@@ -187,7 +190,7 @@ export default function ProfileSection() {
                           textTransform: 'capitalize'
                         }}
                         icon={<SettingOutlined style={{ marginBottom: 0, marginRight: '10px' }} />}
-                        label="Setting"
+                        label={t('title.setting')}
                         {...a11yProps(1)}
                       />
                     </Tabs>

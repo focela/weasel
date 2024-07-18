@@ -1,46 +1,27 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect } from 'react';
 
 // THIRD-PARTY IMPORT
-import { IntlProvider, MessageFormatElement } from 'react-intl';
+import { I18nextProvider, useTranslation } from 'react-i18next';
 
 // PROJECT IMPORT
 import useConfig from '~/hooks/useConfig';
-
-const loadLocaleData = (locale: string) => {
-  switch (locale) {
-    case 'en':
-      return import('~/utils/locales/en.json');
-    case 'ja':
-      return import('~/utils/locales/ja.json');
-    case 'vi':
-      return import('~/utils/locales/vi.json');
-    default:
-      return import('~/utils/locales/en.json');
-  }
-};
+import i18next from '~/utils/i18next';
 
 interface Props {
   children: ReactNode;
 }
 
 export default function Locales({ children }: Props) {
-  const { i18n } = useConfig();
-
-  const [messages, setMessages] = useState<Record<string, string> | Record<string, MessageFormatElement[]> | undefined>();
+  const config = useConfig();
+  const { i18n } = useTranslation();
 
   useEffect(() => {
-    loadLocaleData(i18n).then((d: { default: Record<string, string> | Record<string, MessageFormatElement[]> | undefined }) => {
-      setMessages(d.default);
-    });
-  }, [i18n]);
+    i18n.changeLanguage(config.i18n);
+  }, [config, i18n]);
 
   return (
     <>
-      {messages && (
-        <IntlProvider locale={i18n} defaultLocale="en" messages={messages}>
-          {children}
-        </IntlProvider>
-      )}
+      <I18nextProvider i18n={i18next}>{children}</I18nextProvider>
     </>
   );
 }

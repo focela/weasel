@@ -1,0 +1,37 @@
+{
+  "button": {
+    "remember-me": "Keep me sign in",
+    "login": "Login"
+  },
+  "input": {
+    "account": {
+      "label": "Username / E-mail",
+      "placeholder": "Enter username or e-mail"
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "Enter password"
+    }
+  },
+  "title": {
+    "account-settings": "Account Settings",
+    "billing": "Billing",
+    "edit-profile": "Edit Profile",
+    "feedback": "Feedback",
+    "forgot-password": "Forgot Password?",
+    "history": "History",
+    "login": "Login",
+    "logout": "Logout",
+    "privacy-center": "Privacy Center",
+    "profile": "Profile",
+    "register": "Don't have an account?",
+    "setting": "Setting",
+    "social-profile": "Social Profile",
+    "support": "Support",
+    "view-profile": "View Profile"
+  },
+  "validation": {
+    "required": "{{attribute}} is required.",
+    "max": "{{attribute}} must not be greater than {{max}} characters."
+  }
+}

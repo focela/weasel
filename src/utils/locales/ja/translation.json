@@ -1,0 +1,37 @@
+{
+  "button": {
+    "remember-me": "ログイン状態を維持する",
+    "login": "ログイン"
+  },
+  "input": {
+    "account": {
+      "label": "ユーザー名 / E メール",
+      "placeholder": "ユーザー名または E メールを入力"
+    },
+    "password": {
+      "label": "パスワード",
+      "placeholder": "パスワードを入力"
+    }
+  },
+  "title": {
+    "account-settings": "アカウント設定",
+    "billing": "請求",
+    "edit-profile": "プロフィールの編集",
+    "feedback": "フィードバック",
+    "forgot-password": "パスワードを忘れましたか？",
+    "history": "履歴",
+    "login": "ログイン",
+    "logout": "ログアウト",
+    "privacy-center": "プライバシー センター",
+    "profile": "プロフィール",
+    "register": "アカウントを持っていませんか？",
+    "setting": "設定",
+    "social-profile": "ソーシャル プロフィール",
+    "support": "サポート",
+    "view-profile": "プロフィールの表示"
+  },
+  "validation": {
+    "required": "{{attribute}} は必須です。",
+    "max": "{{attribute}} は {{max}} 文字以下である必要があります。"
+  }
+}

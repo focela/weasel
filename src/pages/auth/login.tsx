@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 // THIRD-PARTY IMPORT
-import { useIntl } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 
 // MUI IMPORT
 import Grid from '@mui/material/Grid';
@@ -13,16 +13,16 @@ import AuthLogin from '~/sections/auth/auth-forms/AuthLogin';
 import AuthWrapper from '~/sections/auth/AuthWrapper';
 
 export default function Login() {
-  const intl = useIntl();
+  const { t } = useTranslation();
 
   return (
     <AuthWrapper>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Stack direction="row" justifyContent="space-between" alignItems="baseline" sx={{ mb: { xs: -0.5, sm: 0.5 } }}>
-            <Typography variant="h3">{intl.formatMessage({ id: 'auth.login' })}</Typography>
+            <Typography variant="h3">{t('title.login')}</Typography>
             <Typography component={Link} to="/register" variant="body1" sx={{ textDecoration: 'none' }} color="primary">
-              {intl.formatMessage({ id: 'auth.register' })}
+              {t('title.register')}
             </Typography>
           </Stack>
         </Grid>

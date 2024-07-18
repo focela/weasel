@@ -17,7 +17,7 @@ import Typography from '@mui/material/Typography';
 // THIRD-PARTY IMPORT
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import { useIntl } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 
 // PROJECT IMPORT
 import AnimateButton from '~/components/extended/AnimateButton';
@@ -30,7 +30,7 @@ import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 
 export default function AuthLogin() {
-  const intl = useIntl();
+  const { t } = useTranslation();
 
   const [checked, setChecked] = React.useState(false);
 
@@ -52,7 +52,16 @@ export default function AuthLogin() {
       account: '',
       password: ''
     },
-    validationSchema: Yup.object().shape({}),
+    validationSchema: Yup.object().shape({
+      account: Yup.string()
+        .trim()
+        .required(t('validation.required', { attribute: t('input.account.label') }))
+        .max(20, t('validation.max', { attribute: t('input.account.label'), max: 255 })),
+      password: Yup.string()
+        .trim()
+        .required(t('validation.required', { attribute: t('input.password.label') }))
+        .max(50, t('validation.max', { attribute: t('input.password.label'), max: 50 }))
+    }),
     onSubmit: async (values, { setStatus, setSubmitting }) => {
       try {
         await login(values.account, values.password);
@@ -76,17 +85,17 @@ export default function AuthLogin() {
           <Grid item xs={12}>
             <Stack spacing={1}>
               <InputLabel required htmlFor="account-login">
-                {intl.formatMessage({ id: 'auth.account' })}
+                {t('input.account.label')}
               </InputLabel>
               <OutlinedInput
+                fullWidth
                 id="account-login"
                 type="text"
                 value={formik.values.account}
                 name="account"
                 onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
-                placeholder={intl.formatMessage({ id: 'auth.account.placeholder' })}
-                fullWidth
+                placeholder={t('input.account.placeholder')}
                 error={Boolean(formik.touched.account && formik.errors.account)}
               />
             </Stack>
@@ -99,12 +108,12 @@ export default function AuthLogin() {
           <Grid item xs={12}>
             <Stack spacing={1}>
               <InputLabel required htmlFor="password-login">
-                {intl.formatMessage({ id: 'auth.password' })}
+                {t('input.password.label')}
               </InputLabel>
               <OutlinedInput
                 fullWidth
                 error={Boolean(formik.touched.password && formik.errors.password)}
-                id="-password-login"
+                id="password-login"
                 type={showPassword ? 'text' : 'password'}
                 value={formik.values.password}
                 name="password"
@@ -123,7 +132,7 @@ export default function AuthLogin() {
                     </IconButton>
                   </InputAdornment>
                 }
-                placeholder={intl.formatMessage({ id: 'auth.password.placeholder' })}
+                placeholder={t('input.password.placeholder')}
               />
             </Stack>
             {formik.touched.password && formik.errors.password && (
@@ -145,10 +154,10 @@ export default function AuthLogin() {
                     size="small"
                   />
                 }
-                label={<Typography variant="h6">{intl.formatMessage({ id: 'auth.remember-me' })}</Typography>}
+                label={<Typography variant="h6">{t('button.remember-me')}</Typography>}
               />
               <Link variant="h6" component={RouterLink} to="/forgot-password" color="text.primary">
-                {intl.formatMessage({ id: 'auth.forgot-password' })}
+                {t('title.forgot-password')}
               </Link>
             </Stack>
           </Grid>
@@ -168,7 +177,7 @@ export default function AuthLogin() {
                 variant="contained"
                 color="primary"
               >
-                {intl.formatMessage({ id: 'auth.login' })}
+                {t('button.login')}
               </LoadingButton>
             </AnimateButton>
           </Grid>
