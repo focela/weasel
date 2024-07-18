@@ -13,6 +13,10 @@
       "placeholder": "Nhập mật khẩu"
     }
   },
+  "menu": {
+    "dashboard": "Bảng điều khiển",
+    "default": "Mặc định"
+  },
   "title": {
     "account-settings": "Cài đặt tài khoản",
     "billing": "Thanh toán",

@@ -14,15 +14,15 @@ import { styled, useTheme, Theme } from '@mui/material/styles';
 
 // THIRD-PARTY IMPORT
 import RightOutlined from '@ant-design/icons/RightOutlined';
+import { useTranslation } from 'react-i18next';
 
-// project import
+// PROJECT IMPORT
 import Avatar from '~/components/extended/Avatar';
 import useAuth from '~/hooks/useAuth';
 import { useGetMenuMaster } from '~/api/menu';
 
-// assets
+// ASSETS IMPORT
 import avatar1 from '~/assets/images/users/avatar-1.png';
-import { useTranslation } from 'react-i18next';
 
 interface ExpandMoreProps extends IconButtonProps {
   theme: Theme;

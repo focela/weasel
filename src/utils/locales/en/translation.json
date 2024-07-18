@@ -31,6 +31,10 @@
     "view-profile": "View Profile",
     "my-account": "My account"
   },
+  "menu": {
+    "dashboard": "Dashboard",
+    "default": "Default"
+  },
   "validation": {
     "required": "{{attribute}} is required.",
     "max": "{{attribute}} must not be greater than {{max}} characters."

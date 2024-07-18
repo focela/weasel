@@ -56,7 +56,7 @@ export default function AuthLogin() {
       account: Yup.string()
         .trim()
         .required(t('validation.required', { attribute: t('input.account.label') }))
-        .max(20, t('validation.max', { attribute: t('input.account.label'), max: 255 })),
+        .max(255, t('validation.max', { attribute: t('input.account.label'), max: 255 })),
       password: Yup.string()
         .trim()
         .required(t('validation.required', { attribute: t('input.password.label') }))

@@ -31,6 +31,10 @@
     "view-profile": "プロフィールの表示",
     "my-account": "私のアカウント"
   },
+  "menu": {
+    "dashboard": "ダッシュボード",
+    "default": "デフォルト"
+  },
   "validation": {
     "required": "{{attribute}} は必須です。",
     "max": "{{attribute}} は {{max}} 文字以下である必要があります。"
