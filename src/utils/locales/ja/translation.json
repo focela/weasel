@@ -29,7 +29,12 @@
     "social-profile": "ソーシャル プロフィール",
     "support": "サポート",
     "view-profile": "プロフィールの表示",
-    "my-account": "私のアカウント"
+    "my-account": "私のアカウント",
+    "notification": "通知",
+    "view-all": "すべて表示",
+    "message": "メッセージ",
+    "fullscreen": "全画面",
+    "exit-fullscreen": "全画面表示を終了"
   },
   "menu": {
     "dashboard": "ダッシュボード",

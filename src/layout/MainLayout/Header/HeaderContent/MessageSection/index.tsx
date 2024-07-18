@@ -30,6 +30,7 @@ import avatar2 from '~/assets/images/users/avatar-2.png';
 import avatar3 from '~/assets/images/users/avatar-3.png';
 import avatar4 from '~/assets/images/users/avatar-4.png';
 import avatar5 from '~/assets/images/users/avatar-5.png';
+import { useTranslation } from 'react-i18next';
 
 const avatarSX = {
   width: 48,
@@ -46,8 +47,10 @@ const actionSX = {
 };
 
 export default function MessageSection() {
+  const { t } = useTranslation();
+
   const theme = useTheme();
-  const matchesXs = useMediaQuery(theme.breakpoints.down('md'));
+  const matchDownMd = useMediaQuery(theme.breakpoints.down('md'));
 
   const anchorRef = useRef<any>(null);
   const [open, setOpen] = useState(false);
@@ -79,21 +82,21 @@ export default function MessageSection() {
         <MailOutlined />
       </IconButton>
       <Popper
-        placement={matchesXs ? 'bottom' : 'bottom-end'}
+        placement={matchDownMd ? 'bottom' : 'bottom-end'}
         open={open}
         anchorEl={anchorRef.current}
         role={undefined}
         transition
         disablePortal
         sx={{ maxHeight: 'calc(100vh - 250px)' }}
-        popperOptions={{ modifiers: [{ name: 'offset', options: { offset: [matchesXs ? -60 : 0, 9] } }] }}
+        popperOptions={{ modifiers: [{ name: 'offset', options: { offset: [matchDownMd ? -60 : 0, 9] } }] }}
       >
         {({ TransitionProps }) => (
-          <Transitions type="grow" position={matchesXs ? 'top' : 'top-right'} in={open} {...TransitionProps}>
+          <Transitions type="grow" position={matchDownMd ? 'top' : 'top-right'} in={open} {...TransitionProps}>
             <Paper sx={{ boxShadow: theme.customShadows.z1, width: '100%', minWidth: 285, maxWidth: { xs: 285, md: 420 } }}>
               <ClickAwayListener onClickAway={handleClose}>
                 <MainCard
-                  title="Message"
+                  title={t('title.message')}
                   elevation={0}
                   border={false}
                   content={false}
@@ -207,7 +210,7 @@ export default function MessageSection() {
                       <ListItemText
                         primary={
                           <Typography variant="h6" color="primary">
-                            View All
+                            {t('title.view-all')}
                           </Typography>
                         }
                       />

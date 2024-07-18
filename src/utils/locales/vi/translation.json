@@ -37,7 +37,11 @@
     "social-profile": "Hồ sơ xã hội",
     "support": "Hỗ trợ",
     "view-profile": "Xem hồ sơ",
-    "my-account": "Tài khoản của tôi"
+    "notification": "Thông báo",
+    "view-all": "Xem tất cả",
+    "message": "Tin nhắn",
+    "fullscreen": "Toàn màn hình",
+    "exit-fullscreen": "Thoát toàn màn hình"
   },
   "validation": {
     "required": "{{attribute}} là bắt buộc.",

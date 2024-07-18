@@ -29,7 +29,12 @@
     "social-profile": "Social Profile",
     "support": "Support",
     "view-profile": "View Profile",
-    "my-account": "My account"
+    "my-account": "My account",
+    "notification": "Notification",
+    "view-all": "View All",
+    "message": "Message",
+    "fullscreen": "Fullscreen",
+    "exit-fullscreen": "Exit Fullscreen"
   },
   "menu": {
     "dashboard": "Dashboard",

@@ -1,34 +1,37 @@
 import { useRef, useState } from 'react';
 
 // MUI IMPORT
-import Box from '@mui/material/Box';
-import List from '@mui/material/List';
-import Badge from '@mui/material/Badge';
-import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
-import Popper from '@mui/material/Popper';
-import Divider from '@mui/material/Divider';
-import Tooltip from '@mui/material/Tooltip';
-import { useTheme } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
-import ListItemText from '@mui/material/ListItemText';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Badge from '@mui/material/Badge';
+import Box from '@mui/material/Box';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
+import Divider from '@mui/material/Divider';
+import List from '@mui/material/List';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import ListItemButton from '@mui/material/ListItemButton';
 import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction';
+import ListItemText from '@mui/material/ListItemText';
+import Paper from '@mui/material/Paper';
+import Popper from '@mui/material/Popper';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 // THIRD-PARTY IMPORT
-import BellOutlined from '@ant-design/icons/BellOutlined';
-import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
-import GiftOutlined from '@ant-design/icons/GiftOutlined';
-import MessageOutlined from '@ant-design/icons/MessageOutlined';
-import SettingOutlined from '@ant-design/icons/SettingOutlined';
+import { useTranslation } from 'react-i18next';
 
 // PROJECT IMPORT
 import MainCard from '~/components/cards/MainCard';
 import IconButton from '~/components/extended/IconButton';
 import Transitions from '~/components/extended/Transitions';
+
+// ASSETS IMPORT
+import BellOutlined from '@ant-design/icons/BellOutlined';
+import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
+import GiftOutlined from '@ant-design/icons/GiftOutlined';
+import MessageOutlined from '@ant-design/icons/MessageOutlined';
+import SettingOutlined from '@ant-design/icons/SettingOutlined';
 
 const avatarSX = {
   width: 36,
@@ -47,6 +50,8 @@ const actionSX = {
 };
 
 export default function NotificationSection() {
+  const { t } = useTranslation();
+
   const theme = useTheme();
   const matchDownMd = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -96,7 +101,7 @@ export default function NotificationSection() {
             <Paper sx={{ boxShadow: theme.customShadows.z1, width: '100%', minWidth: 285, maxWidth: { xs: 285, md: 420 } }}>
               <ClickAwayListener onClickAway={handleClose}>
                 <MainCard
-                  title="Notification"
+                  title={t('title.notification')}
                   elevation={0}
                   border={false}
                   content={false}
@@ -226,7 +231,7 @@ export default function NotificationSection() {
                       <ListItemText
                         primary={
                           <Typography variant="h6" color="primary">
-                            View All
+                            {t('title.view-all')}
                           </Typography>
                         }
                       />

@@ -32,12 +32,17 @@ import AnimateButton from '~/components/extended/AnimateButton';
 // ASSETS IMPORT
 import imageChart from '~/assets/images/mega-menu/chart.svg';
 import backgroundVector from '~/assets/images/mega-menu/back.svg';
+import { useTranslation } from 'react-i18next';
 
 export default function MegaMenuSection() {
+  const { t } = useTranslation();
+
   const theme = useTheme();
+  const iconBackColorOpen = theme.palette.mode === 'dark' ? 'background.default' : 'grey.100';
 
   const anchorRef = useRef<any>(null);
   const [open, setOpen] = useState(false);
+
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
@@ -48,8 +53,6 @@ export default function MegaMenuSection() {
     }
     setOpen(false);
   };
-
-  const iconBackColorOpen = theme.palette.mode === 'dark' ? 'background.default' : 'grey.100';
 
   return (
     <Box sx={{ flexShrink: 0, ml: 0.75 }}>
@@ -130,7 +133,7 @@ export default function MegaMenuSection() {
                                 to="/"
                                 target="_blank"
                               >
-                                View All
+                                {t('title.view-all')}
                               </Button>
                             </AnimateButton>
                             <CardMedia component="img" src={imageChart} alt="Chart" sx={{ mr: -2.5, mb: -2.5, width: 124 }} />
