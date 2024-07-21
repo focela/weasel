@@ -70,3 +70,5 @@ const slice = createSlice({
 });
 
 export default slice.reducer;
+
+export const { openSnackbar, closeSnackbar, handlerIncrease, handlerDense, handlerIconVariants } = slice.actions;

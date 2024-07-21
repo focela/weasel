@@ -2,7 +2,8 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
 // PROJECT IMPORT
-import { openSnackbar } from '~/api/snackbar';
+import { dispatch } from '~/store';
+import { openSnackbar } from '~/store/slices/snackbar';
 
 // TYPES IMPORT
 import { SnackbarProps } from '~/types/snackbar';
@@ -32,17 +33,19 @@ axiosServices.interceptors.response.use(
 export const SnackbarError = (error: AxiosError): void => {
   const message = error.response && getErrorMessage(error.response);
 
-  openSnackbar({
-    open: true,
-    severity: 'error',
-    message,
-    anchorOrigin: { vertical: 'top', horizontal: 'right' },
-    variant: 'alert',
-    alert: {
-      color: 'error'
-    },
-    close: true
-  } as SnackbarProps);
+  dispatch(
+    openSnackbar({
+      alert: {
+        color: 'error'
+      },
+      anchorOrigin: { vertical: 'top', horizontal: 'right' },
+      close: true,
+      message,
+      open: true,
+      severity: 'error',
+      variant: 'alert'
+    } as SnackbarProps)
+  );
 };
 
 export const getErrorMessage = (error: AxiosResponse): string => {

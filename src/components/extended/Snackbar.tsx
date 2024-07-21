@@ -13,7 +13,8 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
 // PROJECT IMPORT
 import IconButton from '~/components/extended/IconButton';
-import { closeSnackbar, useGetSnackbar } from '~/api/snackbar';
+import { closeSnackbar } from '~/store/slices/snackbar';
+import { dispatch, useSelector } from '~/store';
 
 // TYPES IMPORT
 import { KeyedObject } from '~/types';
@@ -48,13 +49,13 @@ const animation: KeyedObject = {
 };
 
 export default function Snackbar() {
-  const { snackbar } = useGetSnackbar();
+  const snackbar = useSelector((state) => state.snackbar);
 
   const handleClose = (event: SyntheticEvent | Event, reason?: string) => {
     if (reason === 'clickaway') {
       return;
     }
-    closeSnackbar();
+    dispatch(closeSnackbar());
   };
 
   return (
