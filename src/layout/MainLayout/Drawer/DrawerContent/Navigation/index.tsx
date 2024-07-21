@@ -14,14 +14,13 @@ import NavGroup from '~/layout/MainLayout/Drawer/DrawerContent/Navigation/NavGro
 import NavItem from '~/layout/MainLayout/Drawer/DrawerContent/Navigation/NavItem';
 import useConfig from '~/hooks/useConfig';
 import { HORIZONTAL_MAX_ITEM, LAYOUT_CONST } from '~/config';
-import { useGetMenuMaster } from '~/api/menu';
 
 // TYPES IMPORT
 import { NavItemType } from '~/types/menu';
+import { useSelector } from '~/store';
 
 export default function Navigation() {
-  const { menuMaster } = useGetMenuMaster();
-  const drawerOpen = menuMaster.isDashboardDrawerOpened;
+  const { drawerOpen } = useSelector((state) => state.menu);
 
   const matchDownLg = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'));
 

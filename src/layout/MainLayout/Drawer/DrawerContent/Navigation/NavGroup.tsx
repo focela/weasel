@@ -27,10 +27,10 @@ import SimpleBar from '~/components/third-party/SimpleBar';
 import Transitions from '~/components/extended/Transitions';
 import useConfig from '~/hooks/useConfig';
 import { LAYOUT_CONST } from '~/config';
-import { useGetMenuMaster } from '~/api/menu';
 
 // TYPES IMPORT
 import { NavItemType } from '~/types/menu';
+import { useSelector } from '~/store';
 
 interface Props {
   item: NavItemType;
@@ -82,14 +82,13 @@ export default function NavGroup({
   setSelectedLevel,
   selectedLevel
 }: Props) {
-  const theme = useTheme();
+  const { layout } = useConfig();
   const { pathname } = useLocation();
 
-  const { layout } = useConfig();
-  const { menuMaster } = useGetMenuMaster();
-  const drawerOpen = menuMaster.isDashboardDrawerOpened;
+  const { drawerOpen } = useSelector((state) => state.menu);
 
-  const downLG = useMediaQuery(theme.breakpoints.down('lg'));
+  const theme = useTheme();
+  const matchDownLG = useMediaQuery(theme.breakpoints.down('lg'));
 
   const [anchorEl, setAnchorEl] = useState<VirtualElement | (() => VirtualElement) | null | undefined>(null);
   const [currentItem, setCurrentItem] = useState(item);
@@ -108,7 +107,7 @@ export default function NavGroup({
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [item, lastItem, downLG]);
+  }, [item, lastItem, matchDownLG]);
 
   const checkOpenForParent = (child: NavItemType[], id: string) => {
     child.forEach((ele: NavItemType) => {
@@ -269,7 +268,7 @@ export default function NavGroup({
 
   return (
     <>
-      {layout === LAYOUT_CONST.VERTICAL || downLG ? (
+      {layout === LAYOUT_CONST.VERTICAL || matchDownLG ? (
         <List
           subheader={
             <>

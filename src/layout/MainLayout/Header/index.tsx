@@ -15,15 +15,15 @@ import AppBarStyled from '~/layout/MainLayout/Header/AppBarStyled';
 import HeaderContent from '~/layout/MainLayout/Header/HeaderContent';
 import IconButton from '~/components/extended/IconButton';
 import useConfig from '~/hooks/useConfig';
+import { dispatch, useSelector } from '~/store';
 import { DRAWER_WIDTH, LAYOUT_CONST, MINI_DRAWER_WIDTH } from '~/config';
-import { handlerDrawerOpen, useGetMenuMaster } from '~/api/menu';
+import { openDrawer } from '~/store/slices/menu';
 
 export default function Header() {
   const theme = useTheme();
   const matchDownLg = useMediaQuery(theme.breakpoints.down('lg'));
 
-  const { menuMaster } = useGetMenuMaster();
-  const drawerOpen = menuMaster.isDashboardDrawerOpened;
+  const { drawerOpen } = useSelector((state) => state.menu);
 
   const { layout, mode } = useConfig();
   const isHorizontal = layout === LAYOUT_CONST.HORIZONTAL && !matchDownLg;
@@ -50,7 +50,7 @@ export default function Header() {
       {!isHorizontal ? (
         <IconButton
           aria-label="open drawer"
-          onClick={() => handlerDrawerOpen(!drawerOpen)}
+          onClick={() => dispatch(openDrawer(!drawerOpen))}
           edge="start"
           color="secondary"
           variant="light"

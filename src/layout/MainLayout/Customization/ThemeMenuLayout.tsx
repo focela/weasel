@@ -12,8 +12,9 @@ import { useTheme } from '@mui/material/styles';
 // PROJECT IMPORT
 import MainCard from '~/components/cards/MainCard';
 import useConfig from '~/hooks/useConfig';
-import { handlerDrawerOpen } from '~/api/menu';
+import { dispatch } from '~/store';
 import { LAYOUT_CONST } from '~/config';
+import { openDrawer } from '~/store/slices/menu';
 
 // ASSETS IMPORT
 import containerLayout from '~/assets/images/customization/container.svg';
@@ -31,12 +32,12 @@ export default function ThemeMenuLayout() {
       onChangeMiniDrawer(true);
       onChangeRTL(true);
       onChangeLayout(e.target.value);
-      handlerDrawerOpen(false);
+      dispatch(openDrawer(false));
     } else {
       onChangeMiniDrawer(true);
       onChangeRTL(true);
       onChangeLayout(e.target.value);
-      handlerDrawerOpen(true);
+      dispatch(openDrawer(true));
     }
   };
 

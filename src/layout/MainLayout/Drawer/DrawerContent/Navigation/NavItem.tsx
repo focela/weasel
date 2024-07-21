@@ -15,11 +15,12 @@ import { useTheme } from '@mui/material/styles';
 import Dot from '~/components/extended/Dot';
 import IconButton from '~/components/extended/IconButton';
 import useConfig from '~/hooks/useConfig';
-import { handlerDrawerOpen, useGetMenuMaster } from '~/api/menu';
 import { LAYOUT_CONST, NavActionType } from '~/config';
 
 // TYPES IMPORT
+import { dispatch, useSelector } from '~/store';
 import { LinkTarget, NavItemType } from '~/types/menu';
+import { openDrawer } from '~/store/slices/menu';
 
 interface Props {
   item: NavItemType;
@@ -31,10 +32,10 @@ export default function NavItem({ item, level, isParents = false }: Props) {
   const theme = useTheme();
   const matchDownLg = useMediaQuery(theme.breakpoints.down('lg'));
 
-  const { menuMaster } = useGetMenuMaster();
-  const drawerOpen = menuMaster.isDashboardDrawerOpened;
-
   const { layout, mode } = useConfig();
+
+  const { drawerOpen } = useSelector((state) => state.menu);
+
   let itemTarget: LinkTarget = '_self';
   if (item.target) {
     itemTarget = '_blank';
@@ -91,7 +92,7 @@ export default function NavItem({ item, level, isParents = false }: Props) {
               })
             }}
             {...(matchDownLg && {
-              onClick: () => handlerDrawerOpen(false)
+              onClick: () => dispatch(openDrawer(false))
             })}
           >
             {itemIcon && (

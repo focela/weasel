@@ -19,10 +19,10 @@ import { useTranslation } from 'react-i18next';
 // PROJECT IMPORT
 import Avatar from '~/components/extended/Avatar';
 import useAuth from '~/hooks/useAuth';
-import { useGetMenuMaster } from '~/api/menu';
 
 // ASSETS IMPORT
 import avatar1 from '~/assets/images/users/avatar-1.png';
+import { useSelector } from '~/store';
 
 interface ExpandMoreProps extends IconButtonProps {
   theme: Theme;
@@ -52,8 +52,7 @@ export default function NavUser() {
   const theme = useTheme();
   const navigate = useNavigate();
 
-  const { menuMaster } = useGetMenuMaster();
-  const drawerOpen = menuMaster.isDashboardDrawerOpened;
+  const { drawerOpen } = useSelector((state) => state.menu);
 
   const { logout, user } = useAuth();
   const handleLogout = async () => {

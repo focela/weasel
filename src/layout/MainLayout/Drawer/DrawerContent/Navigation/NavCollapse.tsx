@@ -16,12 +16,6 @@ import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { styled, useTheme } from '@mui/material/styles';
 
-// THIRD-PARTY IMPORT
-import BorderOutlined from '@ant-design/icons/BorderOutlined';
-import DownOutlined from '@ant-design/icons/DownOutlined';
-import RightOutlined from '@ant-design/icons/RightOutlined';
-import UpOutlined from '@ant-design/icons/UpOutlined';
-
 // PROJECT IMPORT
 import Dot from '~/components/extended/Dot';
 import IconButton from '~/components/extended/IconButton';
@@ -29,11 +23,17 @@ import NavItem from '~/layout/MainLayout/Drawer/DrawerContent/Navigation/NavItem
 import SimpleBar from '~/components/third-party/SimpleBar';
 import Transitions from '~/components/extended/Transitions';
 import useConfig from '~/hooks/useConfig';
-import { useGetMenuMaster } from '~/api/menu';
+import { LAYOUT_CONST } from '~/config';
 
 // TYPES IMPORT
 import { NavItemType } from '~/types/menu';
-import { LAYOUT_CONST } from '~/config';
+
+// ASSETS IMPORT
+import BorderOutlined from '@ant-design/icons/BorderOutlined';
+import DownOutlined from '@ant-design/icons/DownOutlined';
+import RightOutlined from '@ant-design/icons/RightOutlined';
+import UpOutlined from '@ant-design/icons/UpOutlined';
+import { useSelector } from '~/store';
 
 type VirtualElement = {
   getBoundingClientRect: () => ClientRect | DOMRect;
@@ -88,11 +88,10 @@ interface Props {
 }
 
 export default function NavCollapse({ menu, level, parentId, setSelectedItems, selectedItems, setSelectedLevel, selectedLevel }: Props) {
-  const { menuMaster } = useGetMenuMaster();
-  const drawerOpen = menuMaster.isDashboardDrawerOpened;
-
   const theme = useTheme();
   const matchDownLg = useMediaQuery(theme.breakpoints.down('lg'));
+
+  const { drawerOpen } = useSelector((state) => state.menu);
 
   const { layout, mode } = useConfig();
   const navigation = useNavigate();
@@ -100,13 +99,13 @@ export default function NavCollapse({ menu, level, parentId, setSelectedItems, s
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<string | null | undefined>(null);
   const [anchorEl, setAnchorEl] = useState<VirtualElement | (() => VirtualElement) | null | undefined>(null);
-
   const [anchorElCollapse, setAnchorElCollapse] = React.useState<null | HTMLElement>(null);
 
   const openCollapse = Boolean(anchorElCollapse);
   const handleClickCollapse = (event: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     setAnchorElCollapse(event.currentTarget);
   };
+
   const handleCloseCollapse = () => {
     setAnchorElCollapse(null);
   };

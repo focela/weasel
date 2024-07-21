@@ -5,8 +5,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { MenuProps } from '~/types/menu';
 
 const initialState: MenuProps = {
-  isDashboardDrawerOpened: true,
-  isComponentDrawerOpened: true
+  drawerOpen: true
 };
 
 const slice = createSlice({
@@ -14,9 +13,11 @@ const slice = createSlice({
   initialState,
   reducers: {
     openDrawer(state, action) {
-      state.isDashboardDrawerOpened = action.payload;
+      state.drawerOpen = action.payload;
     }
   }
 });
 
 export default slice.reducer;
+
+export const { openDrawer } = slice.actions;

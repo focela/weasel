@@ -17,13 +17,14 @@ import { useTranslation } from 'react-i18next';
 // PROJECT IMPORT
 import MainCard from '~/components/cards/MainCard';
 import useConfig from '~/hooks/useConfig';
-import { handlerDrawerOpen, useGetMenuMaster } from '~/api/menu';
 import { LAYOUT_CONST } from '~/config';
 
 // ASSETS IMPORT
 import defaultLayout from '~/assets/images/customization/default.svg';
 import miniMenu from '~/assets/images/customization/mini-menu.svg';
 import rtlLayoutImg from '~/assets/images/customization/rtl.svg';
+import { dispatch, useSelector } from '~/store';
+import { openDrawer } from '~/store/slices/menu';
 
 export default function ThemeLayout() {
   const { t } = useTranslation();
@@ -31,8 +32,7 @@ export default function ThemeLayout() {
   const theme = useTheme();
   const matchDownLg = useMediaQuery(theme.breakpoints.down('lg'));
 
-  const { menuMaster } = useGetMenuMaster();
-  const drawerOpen = menuMaster.isDashboardDrawerOpened;
+  const { drawerOpen } = useSelector((state) => state.menu);
 
   const { miniDrawer, rtlLayout, layout, onChangeMiniDrawer, onChangeRTL } = useConfig();
   let initialTheme = 'default';
@@ -51,13 +51,13 @@ export default function ThemeLayout() {
         onChangeMiniDrawer(false);
       }
       if (!drawerOpen) {
-        handlerDrawerOpen(true);
+        dispatch(openDrawer(true));
       }
     }
     if (newValue === 'mini') {
       onChangeMiniDrawer(true);
       if (drawerOpen) {
-        handlerDrawerOpen(false);
+        dispatch(openDrawer(false));
       }
     }
     if (newValue === 'rtl') {

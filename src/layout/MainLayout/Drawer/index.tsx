@@ -1,21 +1,25 @@
-import { handlerDrawerOpen, useGetMenuMaster } from '~/api/menu';
+import { useMemo } from 'react';
+
+// MUI IMPORT
 import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Theme } from '@mui/material/styles';
-import MiniDrawerStyled from '~/layout/MainLayout/Drawer/MiniDrawerStyled';
-import { useMemo } from 'react';
-import DrawerHeader from '~/layout/MainLayout/Drawer/DrawerHeader';
+
+// THIRD-PARTY IMPORT
 import DrawerContent from '~/layout/MainLayout/Drawer/DrawerContent';
-import Drawer from '@mui/material/Drawer';
+import DrawerHeader from '~/layout/MainLayout/Drawer/DrawerHeader';
+import MiniDrawerStyled from '~/layout/MainLayout/Drawer/MiniDrawerStyled';
+import { dispatch, useSelector } from '~/store';
 import { DRAWER_WIDTH } from '~/config';
+import { openDrawer } from '~/store/slices/menu';
 
 interface Props {
   window?: () => Window;
 }
 
 export default function MainDrawer({ window }: Props) {
-  const { menuMaster } = useGetMenuMaster();
-  const drawerOpen = menuMaster.isDashboardDrawerOpened;
+  const { drawerOpen } = useSelector((state) => state.menu);
 
   const matchDownLg = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'));
 
@@ -36,7 +40,7 @@ export default function MainDrawer({ window }: Props) {
           container={container}
           variant="temporary"
           open={drawerOpen}
-          onClose={() => handlerDrawerOpen(!drawerOpen)}
+          onClose={() => dispatch(openDrawer(!drawerOpen))}
           ModalProps={{ keepMounted: true }}
           sx={{
             display: { xs: 'block', lg: 'none' },

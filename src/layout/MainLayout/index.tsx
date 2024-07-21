@@ -15,14 +15,12 @@ import Drawer from '~/layout/MainLayout/Drawer';
 import Footer from '~/layout/MainLayout/Footer';
 import Header from '~/layout/MainLayout/Header';
 import HorizontalBar from '~/layout/MainLayout/Drawer/HorizontalBar';
-import Loader from '~/components/Loader';
 import useConfig from '~/hooks/useConfig';
-import { handlerDrawerOpen, useGetMenuMaster } from '~/api/menu';
+import { dispatch } from '~/store';
 import { LAYOUT_CONST } from '~/config';
+import { openDrawer } from '~/store/slices/menu';
 
 export default function MainLayout() {
-  const { menuMasterLoading } = useGetMenuMaster();
-
   const matchDownLg = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'));
   const matchDownXl = useMediaQuery((theme: Theme) => theme.breakpoints.down('xl'));
 
@@ -31,11 +29,9 @@ export default function MainLayout() {
 
   useEffect(() => {
     if (!miniDrawer) {
-      handlerDrawerOpen(!matchDownXl);
+      dispatch(openDrawer(!matchDownXl));
     }
   }, [matchDownLg, matchDownXl, miniDrawer]);
-
-  if (menuMasterLoading) return <Loader />;
 
   return (
     <AuthGuard>
