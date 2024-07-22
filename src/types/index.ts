@@ -26,3 +26,9 @@ export interface GenericCardProps {
   color?: string;
   size?: string;
 }
+
+export type Payload = {
+  id?: number | string;
+  query?: any;
+  callback?: (response: any) => void;
+};

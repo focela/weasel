@@ -1,20 +1,14 @@
 // THIRD-PARTY IMPORT
 import { configureStore } from '@reduxjs/toolkit';
-import { persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
-import { TypedUseSelectorHook, useDispatch as useAppDispatch, useSelector as useAppSelector } from 'react-redux';
+import { persistStore } from 'redux-persist';
+import { useDispatch as useAppDispatch, useSelector as useAppSelector, TypedUseSelectorHook } from 'react-redux';
 
 // PROJECTS IMPORT
 import rootReducer from '~/store/reducer';
 
 const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-        serializableCheck: false
-      }
-    })
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false, immutableCheck: false })
 });
 
 const persister = persistStore(store);

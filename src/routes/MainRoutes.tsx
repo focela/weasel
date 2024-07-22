@@ -7,6 +7,9 @@ import MainLayout from '~/layout/MainLayout';
 // RENDER - DASHBOARD
 const Dashboard = Loadable(lazy(() => import('~/pages/dashboard')));
 
+// RENDER - SYSTEM
+const User = Loadable(lazy(() => import('~/pages/users')));
+
 const MainRoutes = {
   path: '/',
   children: [
@@ -17,6 +20,10 @@ const MainRoutes = {
         {
           path: 'dashboard',
           element: <Dashboard />
+        },
+        {
+          path: 'users',
+          element: <User />
         }
       ]
     }
