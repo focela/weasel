@@ -1,125 +1,85 @@
 {
-  "name": "weasel",
+  "name": "@focela/theme",
   "version": "3.2.0",
-  "description": "Base-UI is a professionally made React dashboard template with ready-to-use Material UI components.",
+  "private": true,
+  "description": "A customizable React theming library for consistent, scalable, and efficient UI design.",
   "keywords": [
-    "admin-template",
-    "ant-design",
-    "dashboard-templates",
-    "material-ui",
-    "mui",
     "react",
-    "react-dashboard"
+    "theme",
+    "theming",
+    "ui",
+    "design-system",
+    "customizable",
+    "focela",
+    "theme-provider",
+    "frontend"
   ],
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Focela Technologies",
-      "email": "opensource@focela.com",
-      "homepage": "https://opensource.focela.com"
-    }
-  ],
-  "dependencies": {
-    "@ant-design/colors": "^7.0.2",
-    "@ant-design/icons": "^5.3.1",
-    "@emotion/cache": "^11.11.0",
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.0",
-    "@focela/snackbar": "^3.0.1",
-    "@mui/lab": "^5.0.0-alpha.167",
-    "@mui/material": "^5.15.12",
-    "@reduxjs/toolkit": "^1.9.5",
-    "axios": "^1.6.7",
-    "formik": "^2.4.5",
-    "framer-motion": "^11.0.8",
-    "history": "^5.3.0",
-    "i18next": "^23.12.1",
-    "i18next-resources-to-backend": "^1.2.1",
-    "jwt-decode": "4.0.0",
-    "lodash": "^4.17.21",
-    "qs": "^6.12.3",
-    "react": "^18.2.0",
-    "react-copy-to-clipboard": "^5.1.0",
-    "react-device-detect": "^2.2.3",
-    "react-dom": "^18.2.0",
-    "react-i18next": "^14.1.3",
-    "react-redux": "^8.1.2",
-    "react-router-dom": "^6.22.3",
-    "react-syntax-highlighter": "^15.5.0",
-    "redux": "^4.2.1",
-    "redux-persist": "^6.0.0",
-    "simplebar-react": "^3.2.4",
-    "stylis-plugin-rtl": "^2.1.1",
-    "vite": "^5.1.5",
-    "web-vitals": "^3.5.2",
-    "yup": "^1.4.0"
+  "main": "./index.js",
+  "module": "./theme.esm.js",
+  "types": "./index.d.ts",
+  "license": "Focela Internal Use License",
+  "author": {
+    "name": "Focela Technologies",
+    "email": "support@focela.com",
+    "url": "https://www.focela.com"
   },
-  "devDependencies": {
-    "@testing-library/react": "^14.2.1",
-    "@types/lodash": "^4.14.202",
-    "@types/node": "^20.11.25",
-    "@types/qs": "^6.9.15",
-    "@types/react": "^18.2.64",
-    "@types/react-copy-to-clipboard": "^5.0.7",
-    "@types/react-dom": "^18.2.21",
-    "@types/react-syntax-highlighter": "^15.5.11",
-    "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-config-react-app": "^7.0.1",
-    "eslint-plugin-flowtype": "^8.0.3",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-prettier": "^5.1.3",
-    "eslint-plugin-react": "^7.34.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "husky": "^8.0.0",
-    "lint-staged": "^15.2.7",
-    "prettier": "^3.2.5",
-    "prettier-eslint-cli": "^8.0.1",
-    "typescript": "5.1.6",
-    "vite-tsconfig-paths": "^4.3.1"
+  "homepage": "https://opensource.focela.com/theme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/focela/theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/focela/theme/issues",
+    "email": "support@focela.com"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@focela",
+    "access": "restricted"
   },
   "scripts": {
-    "start": "npx husky install & vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
-    "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
-    "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\""
+    "prebuild": "npm run docs",
+    "build": "tsdx build --entry ./src/index.ts",
+    "watch": "tsdx watch --transpileOnly --entry ./src/index.ts",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "test": "jest --coverage",
+    "docs": "rimraf typedoc.json && typedoc --tsconfig",
+    "copy": "cp package.json README.md LICENSE dist",
+    "release": "npm run build && npm run copy && np --tag latest",
+    "prettier": "prettier --write ."
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-react"
-    ]
+  "devDependencies": {
+    "@babel/preset-react": "^7.26.3",
+    "@types/react": "^18.2.64",
+    "@types/react-dom": "^18.2.21",
+    "@typescript-eslint/eslint-plugin": "^8.18.2",
+    "@typescript-eslint/parser": "^8.18.2",
+    "babel-plugin-optimize-clsx": "^2.6.2",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "np": "^10.1.0",
+    "prettier": "^3.4.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^5.0.10",
+    "rollup-plugin-bundle-size": "^1.0.3",
+    "rollup-plugin-copy": "^3.5.0",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.8.1",
+    "typedoc": "^0.27.6",
+    "typescript": "^5.1.6"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "np": {
+    "branch": "main",
+    "contents": "./dist",
+    "message": "chore(release): v%s"
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --cache --write"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=7.0.0"
   }
 }

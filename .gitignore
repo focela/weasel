@@ -130,8 +130,8 @@ Temporary Items
 # Directories SSL
 .well-known
 
-### React.js ###
-# Covers Full Versions: React.js, Node.js
+### JS ###
+# Covers Full Versions: React.js, Vue.js, Node.js
 # Reference: https://stackoverflow.com/questions/60220919/which-files-or-folders-should-be-in-gitignore-in-react-project
 
 # Logs
@@ -176,6 +176,5 @@ typings/
 .env.local
 .env.production.local
 .env.test.local
-.npmrc
 package-lock.json
 yarn.lock
