@@ -1,0 +1,33 @@
+{
+  "include": ["src", "**/*.ts", "**/*.tsx", "src/**/*", ".eslintrc", "vite.config.mts"],
+  "exclude": [
+    "build",
+    "coverage",
+    "node_modules",
+    "storybook-static"
+  ],
+  "compilerOptions": {
+    "strict": true,
+    "allowJs": true,
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "baseUrl": "./",
+    "rootDir": "./src",
+    "declaration": false,
+    "sourceMap": true,
+    "lib": ["esnext", "dom"]
+  },
+  "typedocOptions": {
+    "inputFiles": ["./src/types.ts"],
+    "mode": "file",
+    "json": "typedoc.json",
+    "excludeExternals": true,
+    "externalPattern": "**/node_modules/**",
+    "ignoreCompilerErrors": true,
+    "includeDeclarations": true
+  }
+}
