@@ -1,0 +1,41 @@
+# Configuration files
+.babelrc
+.eslintrc
+.eslintignore
+.prettierrc
+.npmrc
+tsconfig.json
+tsdx.config.js
+typedoc.json
+
+# Build tools and CI/CD
+.github/
+.gitignore
+.np-config.json
+
+# Source code and documentation
+src/
+tests/
+__tests__/
+__mocks__/
+coverage/
+docs/
+
+# Log, temp, and cache files
+*.log
+*.tmp
+node_modules/
+dist/
+coverage/
+.cache/
+.DS_Store
+
+# Environment and secrets
+.env
+.env.local
+.env.production
+.env.test
+
+# Miscellaneous
+README.md
+LICENSE
